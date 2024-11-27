@@ -1,0 +1,79 @@
+.wrapper {
+  width: 250px;
+  border: 1px solid #ddd; /* Lighter border for better aesthetics */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px; /* Padding for spacing */
+  background-color: #fff; /* White background for better contrast */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-left: 10px; /* Margin for spacing between items */
+  margin-top: 10px;
+
+  img {
+    aspect-ratio: 1; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for image */
+    background-color: #eee; /* Light background color for placeholder */
+    margin-bottom: 10px; /* Space between image and title */
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px; /* Space below the title */
+    color: #333; /* Darker text color for better readability */
+  }
+
+  .price-label {
+    font-weight: 300;
+    font-size: 1rem;
+    color: #555; /* Medium gray color for label */
+    margin-right: 5px; /* Space between label and value */
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 1.2rem; /* Slightly larger font size for price */
+    color: #007bff; /* Primary color for emphasis */
+  }
+
+  .row {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Space between rows */
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gap-1 {
+    gap: 10px; /* Adjust gap as needed */
+  }
+
+  .gap-05 {
+    gap: 5px; /* Smaller gap for tighter spacing */
+  }
+
+  button {
+    border-radius: 4px; /* Rounded corners for buttons */
+    font-size: 0.9rem; /* Slightly smaller font size for buttons */
+    padding: 8px 12px; /* Padding for button size */
+    margin: 0 5px; /* Space between buttons */
+  }
+
+  .p-button-danger {
+    background-color: #c40707; /* Red background for delete button */
+    border: none; /* Remove default border */
+    color: white; /* White text color */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+
+    &:hover {
+      background-color: #a10606; /* Darker red on hover */
+    }
+  }
+  
+}
+

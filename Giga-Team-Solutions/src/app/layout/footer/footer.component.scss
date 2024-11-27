@@ -1,0 +1,78 @@
+.footer {
+    background-image: url('../../../../public/footer-back2.jpeg');
+    background-size: cover; /* Makes the background cover the entire element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+    font-size: 0.9em;
+}
+
+.footer-bottom a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+a{
+    color: #fff; /* Ensure text color is visible */
+    text-decoration: none; /* Remove default underline */
+    padding: 0 1rem; /* Horizontal padding for spacing */
+    line-height: 2rem; /* Center text vertically */
+      &:hover{
+          color: blue;
+      }
+      &.active{
+        font-weight: bold; /* Highlight active link */
+        color: rgb(223, 36, 223);
+        border-bottom: 2px solid rgb(17, 66, 122); /* Optional: underline active link */
+      }
+  }

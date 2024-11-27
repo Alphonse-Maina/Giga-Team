@@ -1,0 +1,78 @@
+<header class="wrapper row full-center">
+   
+    <div class="column leftheader">
+        <img src="../../../../public/giga-icon.png" alt="logo" class="logo">
+
+    </div>
+    <div class="column rightheader gap-2">
+      <div class="row topnav">
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search..." [(ngModel)]="searchQuery">
+          <button class="search-button" (click)="onSearch()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.499 1.415a5.5 5.5 0 1 1 7.779-7.78 5.5 5.5 0 0 1-7.779 7.78z"/>
+              </svg>
+          </button>
+        </div>
+        <div class="row gap-05">
+          <a href="mailto:sales@gigateam.co.ke" class="mail-button">
+            <i class="pi pi-envelope"></i><span>sales&#64;gigateam.co.ke</span>
+          </a>
+          <a class="whatsapp-button" (click)="openWhatsApp()">
+            <i class="pi pi-whatsapp"></i><span>WhatsApp</span>
+          </a>
+        </div>
+        <div class="row gap-2">
+          <a *ngIf="authservice.isAuthenticated()" class="sign-in-button" (click)="toggleLoginStatus()">
+            <i class="pi pi-sign-out"></i><span>Sign Out</span>
+          </a>
+          <a *ngIf="!authservice.isAuthenticated()" class="sign-in-button" (click)="showDialog()">
+            <i class="pi pi-sign-in"></i><span>Sign In</span>
+          </a>
+          <a class="cart-button" routerLink="/cart">
+            <i class="pi pi-shopping-cart"></i>
+            <span>Cart ({{cartItemCount}})</span>
+          </a>
+        </div>
+      </div>
+        <div class="row gap-1 bottomnav">
+          <div class="row gap-2">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a *ngIf="authservice.isAuthenticated()" class="admin-home-button" routerLink="/admin-home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Admin Home</a>
+            <a routerLink="/shop" routerLinkActive="active">Shop</a>
+          </div>
+          <div class="row gap-2">
+            <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+            <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+          </div>
+        </div>
+    </div>
+    
+
+</header>
+<p-dialog header="Login" [(visible)]="display" [modal]="true" [closable]="true" class="title">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form gap-1" autocomplete="off">
+    <div class="div gap-1">
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="warn">
+        Username is required
+      </div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username">
+    </div>
+    <div class="div gap-2">
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="warn">
+        Password is required
+      </div>
+      <label for="password">Password:</label>
+      <div class="password-container">
+        <input id="password" [type]="passwordType" formControlName="password">
+        <button type="button" class="eye-button" (click)="togglePasswordVisibility()">
+          <i class="pi pi-eye" *ngIf="passwordType === 'password'"></i>
+          <i class="pi pi-eye-slash" *ngIf="passwordType === 'text'"></i>
+        </button>
+      </div>
+    </div>
+    <button class="gap-1 p-button-success btn" pButton icon="pi pi-check" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</p-dialog>
+

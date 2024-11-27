@@ -1,0 +1,70 @@
+// styles.scss
+$font-stack: 'Arial', sans-serif;
+$primary-color: #333;
+$background-color: #f4f4f4;
+$header-color: #007bff;
+$border-color: #ddd;
+$link-color: #007bff;
+
+body {
+    font-family: $font-stack;
+    line-height: 1.6;
+    color: $primary-color;
+    background-color: $background-color;
+    padding: 20px;
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: $header-color;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.refund-returns-policy {
+    margin-bottom: 20px;
+}
+
+.refund-returns-policy p, .refund-returns-policy ul {
+    margin-bottom: 10px;
+}

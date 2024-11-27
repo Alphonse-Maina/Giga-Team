@@ -1,0 +1,13 @@
+<div class="home-layout">
+  <div class="navbar">
+    <app-sidebar (categorySelected)="onCategorySelected($event)"></app-sidebar>
+  </div>
+  
+  <div class="main-content">
+    <!-- Default component to show when no option is selected or when 'default-home' is selected -->
+    <app-default-home *ngIf="!selectedCategory || selectedCategory === 'default-home'"></app-default-home>
+
+    <!-- Component1 for other categories -->
+    <app-component1 *ngIf="selectedCategory && selectedCategory !== 'default-home'" [categoryName]="selectedCategory" [products]="products"></app-component1>
+  </div>
+</div>

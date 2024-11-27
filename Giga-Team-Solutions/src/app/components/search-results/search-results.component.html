@@ -1,0 +1,19 @@
+<div class="search-results">
+    <div *ngIf="filteredProducts.length > 0; else noResults">
+      <div class="product-card-container">
+        <div (click)="viewProductDetail(product!.id)" *ngFor="let product of filteredProducts" class="product-card">
+          <img [src]="product.image" [alt]="product.name">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <p class="price">{{ product.price | price }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noResults>
+      <div class="no-results">
+        <p>OOPS! Looks like we don't have that for now.</p>
+      </div>
+    </ng-template>
+  </div>
+  <!-- (closeModalEvent)="closeModal()" -->

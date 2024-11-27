@@ -1,0 +1,67 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-slider">
+      <div class="slide" *ngFor="let image of heroImages; let i = index" [class.active]="i === currentSlideIndex">
+        <img [src]="image.src" [alt]="image.alt">
+      </div>
+    </div>
+    <div class="discover">
+      <h1 class="headline">Discover the Best in Security Solutions</h1>
+      <p>Your safety is our priority.</p>
+    </div>
+  </section>
+  
+
+  <!-- Brands Section -->
+  <section class="brands-section">
+    <h2>Our Trusted Brands</h2>
+    <div class="brands-grid">
+      <img src="../../../public/hikvision.jpg" alt="HikVision">
+      <img src="../../../public/cisco.png" alt="Cisco">
+      <img src="../../../public/Dahua.jpg" alt="Dahua">
+    </div>
+  </section>
+  
+
+  <!-- Special Offers Section -->
+  <section *ngIf="offerProducts.length > 0" class="special-offers">
+    <h2>Special Offers</h2>
+    <div class="offers-grid">
+      <!-- Displaying full-width images -->
+      <div class="product-full" (click)="viewProductDetail(product!.id)" *ngFor="let product of offerProducts; let i = index" [hidden]="i >= maxVisibleOffers">
+        <img [src]="product.image" alt="{{product.name}}" class="full-image">
+        <div class="product-details">
+          <h3>{{product.name}}</h3>
+          <p><span class="new-price">{{product.price| price}}</span> was <span class="old-price">{{product.oldprice | price}}</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Selling Products Section -->
+  <section *ngIf="bestSellingProducts.length > 0" class="featured-products">
+    <h2>Best Selling Products</h2>
+    <div class="products-grid">
+      <!-- Displaying full-width images -->
+      <div class="product-full" (click)="viewProductDetail(product!.id)" *ngFor="let product of bestSellingProducts; let i = index" [hidden]="i >= maxVisibleBestSelling">
+        <img [src]="product.image" alt="{{product.name}}" class="full-image">
+        <div class="product-details">
+          <h3>{{product.name}}</h3>
+          <p><span class="new-price">{{product.price | price}}</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients-section">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+      <div class="client-card" *ngFor="let client of clients">
+        <img [src]="client.image" [alt]="client.name" class="client-image">
+        <p>{{client.name}}</p>
+      </div>
+    </div>
+  </section>
+</div>

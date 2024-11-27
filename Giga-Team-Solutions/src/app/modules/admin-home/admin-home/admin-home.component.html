@@ -1,0 +1,113 @@
+<div class="admin-home">
+  <!-- Loop through categories -->
+  <div *ngFor="let category of categories">
+    <h2>{{ category.name }}</h2>
+    
+    <!-- Product List for the Category -->
+    <div class="column">
+      <div class="product-list row">
+        <div *ngFor="let product of getPaginatedProducts(category.name)">
+          <app-product [product]="product" (productUpdated)="editProduct($event)" (delete)="toggleDeletePopup($event)"></app-product>
+        </div>
+      </div>
+
+      <!-- Paginator for the Category -->
+      <div class="row gap-2 paginate">
+        <p-paginator 
+          [rows]="rowsPerCategory[category.name]" 
+          [totalRecords]="totalRecordsPerCategory[category.name]" 
+          (onPageChange)="paginate($event, category.name)">
+        </p-paginator>
+        
+        <!-- Dropdown for selecting rows per page for the category -->
+        <div class="select">
+          <select [(ngModel)]="rowsPerCategory[category.name]" (change)="paginate({ first: 0, rows: rowsPerCategory[category.name] }, category.name)">
+            <option [value]="5">5</option>
+            <option [value]="10">10</option>
+            <option [value]="20">20</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Add Product Button -->
+  <button class="add-product-btn" (click)="openDialog()">+</button>
+
+
+  <!-- Dialog for Adding Product -->
+  <div class="dialog-overlay" *ngIf="isDialogOpen">
+    <div class="dialog">
+      <h2>Add Item</h2>
+      <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm" novalidate>
+        <div class="form-group">
+          <label for="image">Image:</label>
+          <div class="image-input">
+            <div class="image-preview-container">
+              <img
+                *ngIf="selectedImage; else blankImage"
+                [src]="selectedImage"
+                class="image-preview"
+                alt="Selected Image"
+                (click)="triggerFileInput()"
+              />
+              <ng-template #blankImage>
+                <div class="blank-circle" (click)="triggerFileInput()">
+                  <div class="add-text">+</div>
+                  <br />
+                  <div class="add-image-text">Add Image</div>
+                </div>
+              </ng-template>
+            </div>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              (change)="onFileSelected($event)"
+              hidden
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" ngModel required #name="ngModel" />
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" ngModel required #price="ngModel" />
+          <div *ngIf="price.invalid && (price.dirty || price.touched)" class="error">
+            Price is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select id="category" name="category" ngModel required #category="ngModel">
+            <option *ngFor="let category of categories" [value]="category.name">
+              {{ category.name }}
+            </option>
+          </select>
+          <div *ngIf="category.invalid && (category.dirty || category.touched)" class="error">
+            Category is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" ngModel required #description="ngModel" rows="4" cols="50"></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="error">
+            Description is required.
+          </div>
+        </div>
+        
+        <button type="button" class="cancel-btn gap-1" (click)="closeDialog()">
+          <i class="pi pi-times"></i><span> Cancel</span>
+        </button>
+        <button type="submit" class="submit-btn gap-1" [disabled]="productForm.invalid">
+          <i class="pi pi-check"></i><span> Add</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,33 @@
+<div class="default-home">
+  <div class="htitle"><h2>All PRODUCTS</h2></div>
+  <div *ngFor="let category of categories">
+    <h2>{{ category.name }}</h2>
+    
+    <!-- Product List for the Category -->
+    <div class="column">
+      <div class="product-list row gap-2">
+        <div *ngFor="let product of getPaginatedProducts(category.name)">
+          <app-add-cart [product]="product"></app-add-cart>
+        </div>
+      </div>
+
+      <!-- Paginator for the Category -->
+      <div class="row gap-2 paginate">
+        <p-paginator 
+          [rows]="rowsPerCategory[category.name]" 
+          [totalRecords]="totalRecordsPerCategory[category.name]" 
+          (onPageChange)="paginate($event, category.name)">
+        </p-paginator>
+        
+        <!-- Dropdown for selecting rows per page for the category -->
+        <div class="select">
+          <select [(ngModel)]="rowsPerCategory[category.name]" (change)="paginate({ first: 0, rows: rowsPerCategory[category.name] }, category.name)">
+            <option [value]="5">5</option>
+            <option [value]="10">10</option>
+            <option [value]="20">20</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="column gap-2 wrapper product-card">
+  <div *ngIf="product.onoffer" class="ribbon">
+   <span>Offer</span>
+ </div>
+ 
+ <div (click)="viewProductDetail(product!.id)">
+   <img [src]="product.image" alt="Product Thumbnail">
+   <h2 class="title">{{ product.name | truncateName }}</h2>
+
+   <div class="row gap-05">
+       <span class="price-label">Price</span>
+       <span class="price">{{product.price | price}}</span>
+   </div>
+ </div>
+
+ <div *ngIf="!getCartItem(product)">
+   <button 
+     type="button" 
+     pButton 
+     icon="pi pi-shopping-cart" 
+     class="p-button-success btn gap-1" 
+     (click)="addToCart(product)">
+     Add to Cart
+   </button>
+ </div>
+
+ <div *ngIf="getCartItem(product)" class="btn2 gap-1">
+   <button 
+     class="p-button-success minusb" 
+     (click)="decrementQuantity(getCartItem(product))">-</button>
+   <span class="valuep">{{ getCartItem(product)?.quantity }}</span>
+   <button 
+     class="p-button-success plusb" 
+     (click)="incrementQuantity(getCartItem(product))">+</button>
+ </div>
+</div>

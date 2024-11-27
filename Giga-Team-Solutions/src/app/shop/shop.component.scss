@@ -1,0 +1,61 @@
+.home-layout {
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  //height: 100vh; /* Full viewport height */
+
+  .navbar {
+    width: 100%; /* Full width navbar */
+    background-color: #f4f4f4; /* Light background for contrast */
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Center items vertically */
+    z-index: 1000; /* Keep it on top */
+    
+    app-sidebar {
+      width: 100%; /* Sidebar takes full width */
+      display: flex; /* Flex display to align items */
+      flex-wrap: wrap; /* Wrap items if necessary */
+      justify-content: space-around; /* Distribute items evenly */
+      background-color: rgba(255, 255, 255, 0.8); /* Background color for sidebar */
+      padding: 10px 0; /* Vertical padding */
+      border-bottom: 1px solid #ddd; /* Bottom border for separation */
+      
+      .heading {
+        width: 100%; /* Full width heading */
+        text-align: center;
+        font-weight: 500;
+        font-size: medium;
+        padding: 10px;
+      }
+      
+      .category {
+        flex: 1; /* Allow categories to take equal space */
+        text-align: center; /* Center text */
+        cursor: pointer;
+        padding: 10px;
+        transition: background-color 0.3s;
+        
+        &:hover {
+          background-color: #ddd; /* Change background on hover */
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+    background-color: #fafafa;
+    overflow: auto; /* Allow scrolling for large content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border-radius: 4px; /* Rounded corners */
+    margin-top: 10px; /* Space between navbar and main content */
+    
+    @media (max-width: 768px) {
+      padding: 10px; /* Less padding for mobile */
+    }
+  }
+}

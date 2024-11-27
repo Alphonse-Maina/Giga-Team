@@ -1,0 +1,58 @@
+<div *ngIf="isOpen" class="dialog-overlay">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2>Edit Product</h2>
+        <button class="close-button" (click)="closeDialog()">×</button>
+      </div>
+      
+      <div class="product-info">
+        <!-- Display Image -->
+        <div class="product-image">
+          <img [src]="editedProduct.image" alt="Product Image" />
+        </div>
+        
+        <!-- Display Product Name -->
+        <div class="product-name">
+          <h3>{{ editedProduct.name }}</h3>
+        </div>
+      </div>
+      
+      <form (ngSubmit)="saveChanges()">
+        <!-- Price -->
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" [(ngModel)]="editedProduct.price" name="price" required />
+        </div>
+  
+        <!-- On Offer (Switch) -->
+        <div class="form-group">
+          <label for="onOffer">On Offer:</label>
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="editedProduct.onoffer" name="onOffer" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+  
+        <!-- Bestselling (Switch) -->
+        <div class="form-group">
+          <label for="bestselling">Bestselling:</label>
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="editedProduct.bestselling" name="bestselling" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+  
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea [(ngModel)]="editedProduct.description" name="description"></textarea>
+        </div>
+  
+        <div class="dialog-actions">
+          <button type="submit">Save</button>
+          <button type="button" (click)="closeDialog()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

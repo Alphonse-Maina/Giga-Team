@@ -1,0 +1,32 @@
+<div class="acs">
+  <div>
+    <h2>{{categoryName}}</h2>
+    
+    <!-- Product List for the Category -->
+    <div class="column">
+      <div class="product-list row gap-2">
+        <div *ngFor="let product of getPaginatedProducts()">
+          <app-add-cart [product]="product"></app-add-cart>
+        </div>
+      </div>
+
+      <!-- Paginator for the Category -->
+      <div class="row gap-2 paginate">
+        <p-paginator 
+          [rows]="rowsPerCategory" 
+          [totalRecords]="totalRecordsPerCategory" 
+          (onPageChange)="paginate($event)">
+        </p-paginator>
+        
+        <!-- Dropdown for selecting rows per page for the category -->
+        <div class="select">
+          <select [(ngModel)]="rowsPerCategory" (change)="paginate({ first: 0, rows: rowsPerCategory })">
+            <option [value]="5">5</option>
+            <option [value]="10">10</option>
+            <option [value]="20">20</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!-- sidebar.component.html -->
+<div class="sidebar">
+  <div class="heading gap-2" (click)="toggleDialog()">
+    <i class="pi pi-bars"></i> Product Categories
+  </div>
+  
+  <div class="category" (click)="selectCategory('default-home')">
+    <div class="category-title">All Products</div>
+  </div>
+  
+  <div class="category" *ngFor="let category of categories">
+    <div class="category-title" (click)="selectCategory(category.name)">
+      {{ category.name }}
+    </div>
+  </div>
+</div>
+
+<!-- Dialog Component -->
+<div class="dialog" *ngIf="isDialogVisible">
+  <div class="dialog-content">
+    <span class="close" (click)="toggleDialog()">&times;</span>
+    <h2>Select a Category</h2>
+    <div class="category" *ngFor="let category of categories" (click)="selectCategory(category.name)">
+      {{ category.name }}
+    </div>
+  </div>
+</div>

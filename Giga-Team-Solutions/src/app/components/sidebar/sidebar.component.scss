@@ -1,0 +1,81 @@
+.sidebar {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line */
+  width: 100%; /* Full width of the parent container */
+  background-color: rgba(148, 155, 201, 0.8); /* Semi-transparent background */
+  padding: 10px 0; /* Vertical padding */
+  border-bottom: 1px solid #ddd; /* Bottom border for separation */
+  
+  .heading {
+    display: none;
+   
+    @media (max-width: 768px) {
+      text-align: center;
+      display: flex;
+      width: 100%; /* Full width heading */
+      text-align: center; /* Center text */
+      font-weight: 500; /* Bold font */
+      font-size: medium; /* Medium font size */
+      padding: 10px; /* Padding for the heading */
+    }
+  }
+  
+
+  .category {
+    flex: 1 1 auto; /* Allow categories to take equal space */
+    text-align: center; /* Center text */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Padding for category items */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    
+    &:hover {
+      background-color: #ddd; /* Change background on hover */
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .category-title {
+    display: block; /* Make it a block element */
+    padding: 10px; /* Padding for better click area */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background color transition */
+
+    &:hover {
+      background-color: #ccc; /* Change background color on hover */
+    }
+  }
+  
+}
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* On top of everything */
+
+  .dialog-content {
+    background-color: rgb(245, 237, 237);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+
+    .close {
+      cursor: pointer;
+      float: right;
+      font-size: 1.5em;
+      color: #aaa;
+    }
+    .category{
+      border-bottom: 1px solid rgb(29, 27, 27);
+      background-color: rgba(75, 114, 129, 0.2);
+      margin-top: 5px;
+    }
+  }
+}

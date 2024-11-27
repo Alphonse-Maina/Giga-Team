@@ -1,0 +1,49 @@
+<h2>Shopping Cart</h2>
+
+<div *ngIf="cartItems.length === 0" class="empty-cart">
+  <img src="../../../../public/sad-cart.jpeg" alt="Sad Face" class="sad-cart-image">
+  <p>Your cart is empty.</p>
+  <button class="shop-button" (click)="goToShop()">Back to Shop</button>
+</div>
+
+<div *ngIf="cartItems.length > 0" class="table-container">
+  <!-- Wrap the table in a scrollable container -->
+  <div class="scrollable-table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.price | price }}</td>
+          <td class="row bts">
+            <button class="minusb" (click)="decrementQuantity(item)">-</button>
+            <span class="valuep">{{ item.quantity }}</span>
+            <button class="plusb" (click)="incrementQuantity(item)">+</button>
+          </td>
+          <td>{{ item.quantity * item.price | price }}</td>
+          <td>
+            <button class="remove-button" (click)="removeItem(item.id)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cart-totals">
+    <p class="grand-total">Grand Total: {{ getTotalPrice() | price }}</p>
+  </div>
+  
+  <div class="cart-buttons">
+    <button class="clear-cart-button" (click)="clearCart()">Clear Cart</button>
+    <button class="buy-whatsapp-button" (click)="buyViaWhatsApp()">Buy via WhatsApp</button>
+    <button class="checkout-button">Checkout</button>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div *ngIf="product">
+  <!-- Product Detail Page Container -->
+  <div class="product-detail-page">
+    
+    <!-- Main Product Section -->
+    <div class="main-section">
+      <!-- Left Section: Image and Info -->
+      <div class="left-section">
+        <div class="product-image">
+          <img [src]="product.image" alt="{{ product.name }}">
+        </div>
+        <div class="product-info">
+          <h2>{{ product.name }}</h2>
+          <p class="price">{{ product.price | price }}</p>
+        </div>
+      </div>
+
+      <!-- Right Section: Description and Buttons -->
+      <div class="right-section">
+        <div class="description">
+          <p>{{ product.description }}</p>
+        </div>
+
+        <!-- Add to Cart / Quantity Management -->
+        <div *ngIf="!getCartItem(product)">
+          <div class="column gap-1">
+            <button type="button" pButton icon="pi pi-shopping-cart" class="p-button-success btn gap-1" (click)="addToCart(product)">Add to Cart</button>
+            <button type="button" pButton icon="pi pi-whatsapp" class="p-button-success btn gap-1" (click)="openWhatsApp()">Buy Via WhatsApp</button>
+          </div>
+        </div>
+
+        <div *ngIf="getCartItem(product)" class="column gap-1">
+          <div class="btn2 gap-1">
+            <button class="p-button-success minusb" (click)="decrementQuantity(getCartItem(product))">-</button>
+            <span class="valuep">{{ getCartItem(product)?.quantity }}</span>
+            <button class="p-button-success plusb" (click)="incrementQuantity(getCartItem(product))">+</button>
+          </div>
+          <button type="button" pButton icon="pi pi-whatsapp" class="p-button-success btn gap-1" (click)="openWhatsApp()">Buy {{ getCartItem(product)?.quantity }} Via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="related-products">
+      <h3>Related Products</h3>
+      <div class="related-products-grid">
+        <div class="related-product-card" *ngFor="let relatedProduct of relatedProducts">
+          <img [src]="relatedProduct.image" alt="{{ relatedProduct.name }}">
+          <p>{{ relatedProduct.name }}</p>
+          <p class="price">{{ relatedProduct.price | price }}</p>
+          <button type="button" class="view-btn" (click)="viewProductDetail(relatedProduct!.id)">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="!product">
+  <p>Loading...</p>
+</ng-container>

@@ -1,0 +1,258 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-image: url('../../../../public/background.png');
+  background-position: right; 
+  background-repeat: no-repeat; 
+  width: 100%;
+ 
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+}
+
+.leftheader {
+  flex: 1;
+  text-align: left;
+
+  img.logo {
+    max-width: 150px; 
+    height: auto;
+  }
+}
+
+.rightheader {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.bottomnav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(7, 7, 7, 0.877);
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+
+  .search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .search-button {
+    margin-left: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 75%;
+    .search-input {
+      flex: none;
+      width: 70%;
+    }
+
+    .search-button {
+      margin-left: 0;
+      width: 20%;
+    }
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    color: #007bff;
+  }
+
+  &.active {
+    font-weight: bold;
+    border-bottom: 2px solid rgb(17, 66, 122);
+  }
+}
+
+.mail-button,
+.whatsapp-button,
+.sign-in-button,
+.cart-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cart-button span {
+  font-size: 16px;
+}
+
+.warn {
+  color: red;
+}
+
+.btn {
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+p-dialog {
+  border-radius: 8px; 
+  padding: 1.5rem; 
+  background-color: #fff; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 90%; 
+  width: auto; 
+
+  @media (max-width: 768px) {
+    width: 95%; 
+  }
+
+  p-dialog-header {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 8px 8px 0 0; 
+    padding: 0.75rem;
+
+    p-dialog-title {
+      font-size: 1.25rem; 
+      margin: 0; 
+    }
+
+    p-dialog-header-close {
+      color: white; 
+      border: none; 
+      background: transparent; 
+      font-size: 1.25rem; 
+      cursor: pointer; 
+    }
+  }
+
+  p-dialog-content {
+    padding: 1rem 0; 
+  }
+}
+
+/* Form styling inside the dialog */
+ p-dialog, .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+
+    label {
+      font-weight: bold; 
+    }
+
+    input {
+      padding: 0.75rem; 
+      border-radius: 4px; 
+      border: 1px solid #ccc; 
+      font-size: 1rem; 
+      width: 100%; 
+    }
+
+    .warn {
+      color: red; 
+      font-size: 0.875rem;
+    }
+    .password-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+  
+      input {
+        padding-right: 2.5rem; 
+      }
+  
+      .eye-button {
+        position: absolute;
+        right: 0.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        color: #000000; 
+        font-size: 1.25rem; 
+  
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .btn {
+    align-self: flex-end; 
+    padding: 0.75rem 1.5rem; 
+    background-color: #28a745; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer;
+
+    &:hover {
+      background-color: #218838; 
+    }
+  }
+}

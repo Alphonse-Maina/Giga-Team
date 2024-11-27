@@ -1,0 +1,139 @@
+/* Center the table on the page */
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Wrap table in a scrollable container */
+.scrollable-table-container {
+  width: 100%;
+  overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+table {
+  width: 100%; /* Use full width */
+  min-width: 600px; /* Prevent table from shrinking too much */
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  align-items: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.bts {
+  padding-left: auto;
+}
+
+.minusb, .plusb {
+  background-color: rgb(40, 167, 69);
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.minusb {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.plusb {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.valuep {
+  width: 4rem;
+  text-align: center;
+  background-color: rgb(204, 204, 200);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.plusb:hover, .minusb:hover {
+  background-color: rgb(30, 137, 49);
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+
+.clear-cart-button, .buy-whatsapp-button, .checkout-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
+
+.clear-cart-button:hover, .buy-whatsapp-button:hover, .checkout-button:hover {
+  background-color: #0056b3;
+}
+
+/* Flex container for cart buttons */
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+/* Grand total styling */
+.grand-total {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Empty cart styling */
+.empty-cart {
+  text-align: center;
+  padding: 2rem;
+}
+
+.sad-cart-image {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.shop-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.shop-button:hover {
+  background-color: #0056b3;
+}

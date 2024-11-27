@@ -1,0 +1,137 @@
+.wrapper {
+    width: 300px; /* Increased width */
+    padding: 1rem; /* Added padding for spacing */
+    border: 1px solid #ddd; /* Border for separation */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    background-color: white;
+  
+    &:hover {
+      transform: translateY(-10px); /* Slight lift on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    }
+  
+    img {
+      aspect-ratio: 1.5; /* Adjusted for larger images */
+      object-fit: cover; /* Ensure the image fills the space */
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+  
+    .title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+  
+    .price-label {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #555;
+    }
+  
+    .price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #28a745;
+    }
+  
+    .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  
+    .btn2 {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+  
+      .minusb,
+      .plusb {
+        background-color: #28a745;
+        border: none;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+  
+      .valuep {
+        width: 50px;
+        text-align: center;
+        background-color: #e9ecef;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+  
+    .ribbon {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #fa1500;
+      color: white;
+      text-align: center;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg); /* Tilt the ribbon slightly */
+      // top: 10px;
+      // right: 10px; /* Adjust positioning */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+      z-index: 1;
+      overflow: hidden;
+      transition: all 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .ribbon:hover {
+      transform: rotate(-45deg) translate(5px, -5px) scale(1.05); /* Hover effect for "peel" motion */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+  }
+  
+  .ribbon:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+      top: 0;
+      left: 0;
+      border-radius: 50% 50% 50% 0; /* Matches the peeled corner look */
+  }
+  
+  .ribbon span {
+      display: block;
+      font-weight: bold;
+      font-size: 0.8rem;
+      position: relative;
+      top: 20px;
+      transform: rotate(45deg); /* Rotate text back to horizontal */
+      transition: transform 0.3s ease;
+  }
+  
+  .ribbon:hover span {
+      transform: rotate(45deg) translateX(3px); /* Slight text movement on hover */
+  }
+  
+  
+  }
+  
