@@ -11,8 +11,13 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
+
+app.use(cors({
+  origin:['https://70d2-197-248-111-39.ngrok-free.app', 'http://localhost:4200'],
+  credentials: true  
+}));
+
 
 // MySQL connection
 const db = mysql.createConnection({
@@ -90,6 +95,7 @@ app.post('/api/auth/login', (req, res) => {
 app.get('/api/products', async (req, res) => {
   try {
     const [rows] = await promisedb.query('SELECT * FROM products');
+    console.log(rows);
     res.json(rows);
   } catch (err) {
     console.error(err);

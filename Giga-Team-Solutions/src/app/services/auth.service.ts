@@ -8,8 +8,8 @@ import { tap, catchError } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'http://192.168.0.102:3000/api/auth';
-  //private apiUrl = 'http://localhost:3000/api/auth'; // Endpoint for authentication
+  private apiUrl = 'https://5e0b-197-248-111-39.ngrok-free.app/api/auth';
+  //private apiUrl = 'http://localhost:3000/api/auth'; 
   
   constructor(private http: HttpClient) { }
   private loggedIn: boolean = false;
@@ -23,15 +23,13 @@ export class AuthService {
   
     return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
       tap(response => {
-        // If login is successful, store the token or grant access
-        localStorage.setItem('token', response.token); // Store the token for further authenticated requests
-        // console.log('Access granted');
-        this.loggedIn = true; // Set to true after successful login
+        localStorage.setItem('token', response.token);
+        
+        this.loggedIn = true; 
       }),
       catchError(error => {
-        // If login fails, handle the error
         console.error('Access denied:', error.message);
-        return of(null); // Return a null observable to prevent breaking the flow
+        return of(null);
       })
     );
   }
