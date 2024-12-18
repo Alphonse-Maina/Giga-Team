@@ -4,7 +4,7 @@
         <div (click)="viewProductDetail(product!.id)" *ngFor="let product of filteredProducts" class="product-card">
           <img [src]="product.image" [alt]="product.name">
           <h3>{{ product.name }}</h3>
-          <p>{{ product.description }}</p>
+          <p>{{ product.description | truncateName }}</p>
           <p class="price">{{ product.price | price }}</p>
         </div>
       </div>

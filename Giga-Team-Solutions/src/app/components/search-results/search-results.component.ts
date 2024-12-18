@@ -6,11 +6,12 @@ import { PricePipe } from "../../pipes/price.pipe";
 import { CommonModule } from '@angular/common';
 import { ProductDetailComponent } from "../product-detail/product-detail.component";
 import { CartService } from '../../services/cart.service';
+import { TruncateNamePipe } from "../../pipes/truncate-name.pipe";
 
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [PricePipe, CommonModule],
+  imports: [PricePipe, CommonModule, TruncateNamePipe],
   templateUrl: './search-results.component.html',
   styleUrl: './search-results.component.scss'
 })

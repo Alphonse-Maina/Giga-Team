@@ -8,6 +8,9 @@
   background-position: right; 
   background-repeat: no-repeat; 
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
  
 
   @media (max-width: 768px) {

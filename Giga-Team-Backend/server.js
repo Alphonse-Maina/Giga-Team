@@ -14,8 +14,9 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin:['https://70d2-197-248-111-39.ngrok-free.app', 'http://localhost:4200'],
-  credentials: true  
+  origin:['https://3b17-197-248-111-39.ngrok-free.app', 'http://localhost:4200'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 
 
@@ -95,7 +96,6 @@ app.post('/api/auth/login', (req, res) => {
 app.get('/api/products', async (req, res) => {
   try {
     const [rows] = await promisedb.query('SELECT * FROM products');
-    console.log(rows);
     res.json(rows);
   } catch (err) {
     console.error(err);
@@ -178,7 +178,6 @@ app.delete('/api/products/:id', (req, res) => {
           // No product found with the given ID
           res.status(404).send('Product not found');
       } else {
-          console.log(`Product with ID ${productId} deleted successfully.`);
           res.status(200).json({ message: `Product with ID ${productId} deleted successfully.` });
       }
   });

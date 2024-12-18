@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit{
   
 
   openWhatsApp() {
-    const phoneNumber = '+254752406708'; 
+    const phoneNumber = '+254718285251'; 
     const message = 'Hello, I would like to know more about GigaTeam Solutions services.';
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');

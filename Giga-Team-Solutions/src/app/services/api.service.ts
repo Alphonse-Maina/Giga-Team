@@ -8,7 +8,7 @@ import { Product } from '../types';
 })
 export class ApiService {
 
-  private apiUrl = 'https://5e0b-197-248-111-39.ngrok-free.app/api';
+  private apiUrl = 'https://8df9-197-248-111-39.ngrok-free.app/api';
   //private apiUrl = 'http://localhost:3000/api';
 
   private headers = new HttpHeaders({

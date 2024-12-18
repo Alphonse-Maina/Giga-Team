@@ -49,7 +49,7 @@ export class CartComponent {
     const itemsDetails = this.cartItems.map(item => `${item.name} (x${item.quantity}): ${item.price * item.quantity}`).join('\n');
     const message = `I'd love to purchase these items:\n\n${itemsDetails}\n\nGrand Total: ${this.getTotalPrice()}`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/254752406708?text=${encodedMessage}`);
+    window.open(`https://wa.me/254718285251?text=${encodedMessage}`);
   }
 
   goToShop() {

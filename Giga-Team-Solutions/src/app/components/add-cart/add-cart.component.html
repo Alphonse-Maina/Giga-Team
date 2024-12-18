@@ -8,7 +8,7 @@
    <h2 class="title">{{ product.name | truncateName }}</h2>
 
    <div class="row gap-05">
-       <span class="price-label">Price</span>
+      <div *ngIf="product.onoffer"> <span  class="oldprice">{{product.oldprice | price}} </span> <span> Now</span> </div>
        <span class="price">{{product.price | price}}</span>
    </div>
  </div>

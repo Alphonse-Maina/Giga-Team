@@ -81,7 +81,7 @@ export class ProductDetailComponent implements OnInit {
   openWhatsApp() {
     const cartItem = this.getCartItem(this.product);
     let quantity = cartItem ? cartItem.quantity : 1;
-    const phoneNumber = '+254752406708';
+    const phoneNumber = '+254718285251';
     const message = `Hello, I would like to buy ${quantity} of ${this.product.name}.`;
   
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;

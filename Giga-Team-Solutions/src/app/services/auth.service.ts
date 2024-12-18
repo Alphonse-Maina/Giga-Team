@@ -8,7 +8,7 @@ import { tap, catchError } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'https://5e0b-197-248-111-39.ngrok-free.app/api/auth';
+  private apiUrl = 'https://8df9-197-248-111-39.ngrok-free.app/api/auth';
   //private apiUrl = 'http://localhost:3000/api/auth'; 
   
   constructor(private http: HttpClient) { }

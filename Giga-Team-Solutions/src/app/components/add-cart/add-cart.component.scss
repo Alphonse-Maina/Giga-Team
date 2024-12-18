@@ -1,5 +1,5 @@
 .wrapper {
-    width: 300px; /* Increased width */
+    width: 280px; /* Increased width */
     padding: 1rem; /* Added padding for spacing */
     border: 1px solid #ddd; /* Border for separation */
     border-radius: 10px; /* Rounded corners */
@@ -30,7 +30,7 @@
   
     .row {
       display: flex;
-      justify-content: space-between;
+      //justify-content: space-between;
       align-items: center;
       margin: 0.5rem 0;
     }
@@ -39,6 +39,12 @@
       font-weight: 400;
       font-size: 1rem;
       color: #555;
+    }
+
+    .oldprice{
+      text-decoration: line-through;
+      color: #999;
+      margin-left: 10px;
     }
   
     .price {
