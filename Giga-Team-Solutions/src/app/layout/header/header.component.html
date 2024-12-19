@@ -53,6 +53,7 @@
 <p-dialog header="Login" [(visible)]="display" [modal]="true" [closable]="true" class="title">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form gap-1" autocomplete="off">
     <div class="div gap-1">
+      <div [class]="class">We are not familiar to these credentials. Please Try again.</div>
       <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="warn">
         Username is required
       </div>

@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit{
   cartItemCount: number = 0;
   searchQuery: string = '';
   passwordType: string = 'password'; 
+  class: string = 'normal';
   // isNavVisible: boolean = false;
 
 
@@ -71,9 +72,10 @@ export class HeaderComponent implements OnInit{
           if (response) {
             // If login is successful, navigate to the admin-home page
             this.router.navigate(['/admin-home']);
+            this.display = false;
           } else {
             // Handle login failure (e.g., show an error message)
-            alert('Login failed: Invalid username or password');
+            this.class = 'warn';
           }
         },
         (error) => {
@@ -83,7 +85,7 @@ export class HeaderComponent implements OnInit{
         }
       );
     }
-    this.display = false;
+    
     this.loginForm.reset();
   }
 

@@ -130,7 +130,9 @@ a {
     border-bottom: 2px solid rgb(17, 66, 122);
   }
 }
-
+.whatsapp-button:hover{
+  color: #07e23a;
+}
 .mail-button,
 .whatsapp-button,
 .sign-in-button,
@@ -147,6 +149,9 @@ a {
 
 .warn {
   color: red;
+}
+.normal{
+  opacity: 0;
 }
 
 .btn {
